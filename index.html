@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chentiwuni Yakubu</title>
+<meta name="description" content="Chentiwuni Yakubu — data engineering and security analytics. MS Applied Security & Analytics, University of Findlay.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --fog:#EDF0F3;
+  --paper:#F8F9FB;
+  --ink:#18212C;
+  --muted:#566170;
+  --rule:#CDD4DC;
+  --signal:#0E7378;
+  --signal-soft:#D3E9E9;
+  --amber:#B87A0B;
+  --display:"Bricolage Grotesque", system-ui, sans-serif;
+  --body:"Public Sans", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --fog:#141B23; --paper:#1B242E; --ink:#E6EBF0; --muted:#9AA6B3;
+    --rule:#2E3A47; --signal:#4FB8BC; --signal-soft:#1D3A3D; --amber:#E0A93A;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--fog);color:var(--ink);font:400 1.0625rem/1.65 var(--body);-webkit-font-smoothing:antialiased}
+a{color:var(--signal);text-underline-offset:.2em;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:2px}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.5rem}
+
+/* Top bar */
+header.top{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.25rem 0}
+.mark{font:800 1.125rem/1 var(--display);color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+nav ul{display:flex;gap:1.5rem;list-style:none;margin:0;padding:0}
+nav a{color:var(--muted);text-decoration:none;font-weight:500;font-size:.95rem}
+nav a:hover{color:var(--ink)}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center;padding:4.5rem 0 5rem}
+.hero h1{font:800 clamp(2.75rem,7vw,5.25rem)/.95 var(--display);letter-spacing:-.035em;margin:0 0 1.5rem}
+.role{font:500 clamp(1.15rem,2.2vw,1.4rem)/1.35 var(--display);color:var(--muted);margin:0 0 1.5rem;max-width:30ch}
+.lede{max-width:56ch;margin:0 0 2rem}
+.actions{display:flex;flex-wrap:wrap;gap:.75rem}
+.btn{display:inline-block;padding:.7rem 1.15rem;border-radius:6px;font-weight:600;text-decoration:none;border:1.5px solid var(--ink);color:var(--ink)}
+.btn.primary{background:var(--ink);color:var(--fog)}
+.btn:hover{background:var(--signal);border-color:var(--signal);color:#fff}
+
+/* Pipeline figure */
+figure.pipe{margin:0;background:var(--paper);border:1px solid var(--rule);border-radius:14px;padding:1.5rem 1.25rem 1.1rem}
+figure.pipe svg{width:100%;height:auto;display:block}
+figure.pipe figcaption{font-size:.875rem;color:var(--muted);margin-top:.75rem;line-height:1.5}
+.node rect{fill:var(--fog);stroke:var(--rule)}
+.node.hub rect{fill:var(--signal-soft);stroke:var(--signal)}
+.node.out rect{fill:var(--ink);stroke:var(--ink)}
+.node text{font:600 13px var(--body);fill:var(--ink)}
+.node.out text{fill:var(--fog)}
+.node text.sub{font-weight:400;font-size:11px;fill:var(--muted)}
+.node.out text.sub{fill:var(--rule)}
+.flow{fill:none;stroke:var(--signal);stroke-width:1.75;stroke-dasharray:4 6;animation:flow 1.6s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-20}}
+@media (prefers-reduced-motion: reduce){.flow{animation:none}}
+
+/* Sections */
+section{padding:4.5rem 0;border-top:1px solid var(--rule)}
+.sec{display:grid;grid-template-columns:14rem 1fr;gap:2rem}
+h2{font:700 1.75rem/1.15 var(--display);letter-spacing:-.02em;margin:0}
+h3{font:700 1.25rem/1.3 var(--display);margin:0;letter-spacing:-.01em}
+
+/* Experience timeline */
+.job{display:grid;grid-template-columns:9.5rem 1fr;gap:1.5rem;padding-bottom:2.5rem;position:relative}
+.job:last-child{padding-bottom:0}
+.when{font-size:.9rem;color:var(--muted);line-height:1.45;padding-top:.2rem}
+.when b{display:block;color:var(--ink);font-weight:600}
+.org{color:var(--signal);font-weight:600;margin:.15rem 0 .85rem}
+.job ul{margin:0;padding-left:1.1rem;max-width:62ch}
+.job li{margin-bottom:.55rem}
+.job li::marker{color:var(--signal)}
+.num{font-weight:700;color:var(--ink);background:linear-gradient(transparent 62%,var(--signal-soft) 62%)}
+
+/* Skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:2rem}
+.skills h3{font-size:1.05rem;margin-bottom:.75rem}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0;padding:0}
+.tags li{padding:.35rem .75rem;border-radius:999px;background:var(--paper);border:1px solid var(--rule);font-size:.925rem;font-weight:500}
+.skills .tech .tags li{border-color:var(--signal);color:var(--signal);background:transparent}
+
+/* Certs + education */
+.list{list-style:none;margin:0;padding:0}
+.list li{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--rule)}
+.list li:first-child{padding-top:0}
+.list .meta{color:var(--muted);font-size:.925rem;text-align:right;flex-shrink:0}
+.edu h3{font-size:1.15rem}
+.edu p{margin:.2rem 0 0;color:var(--muted)}
+.edu li{display:block}
+.pill{display:inline-block;margin-top:.5rem;font-size:.8rem;font-weight:600;color:var(--amber);border:1px solid currentColor;border-radius:999px;padding:.1rem .6rem}
+
+/* Contact */
+.contact{background:var(--ink);color:var(--fog);border-top:0;padding:5rem 0 3rem}
+.contact h2{color:var(--fog);font-size:clamp(2rem,5vw,3.25rem);letter-spacing:-.03em;max-width:18ch;margin-bottom:1.25rem}
+.contact p{max-width:52ch;color:#B9C3CE;margin:0 0 2rem}
+.contact .btn{border-color:var(--fog);color:var(--fog)}
+.contact .btn.primary{background:var(--fog);color:var(--ink)}
+.contact .btn:hover{background:var(--signal);border-color:var(--signal);color:#fff}
+@media (prefers-color-scheme: dark){
+  .contact{background:var(--paper)}
+  .contact h2{color:var(--ink)} .contact p{color:var(--muted)}
+  .contact .btn{border-color:var(--ink);color:var(--ink)}
+  .contact .btn.primary{background:var(--ink);color:var(--fog)}
+}
+footer.fine{margin-top:4rem;font-size:.85rem;color:#8995A3}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;padding:2.5rem 0 3.5rem;gap:2.5rem}
+  .sec{grid-template-columns:1fr;gap:1.5rem}
+  nav ul{gap:1rem}
+}
+@media (max-width:560px){
+  .wrap{padding:0 1rem}
+  nav{display:none}
+  .job{grid-template-columns:1fr;gap:.35rem}
+  .when b{display:inline;margin-right:.4rem}
+  .list li{flex-direction:column;gap:.15rem}
+  .list .meta{text-align:left}
+  section{padding:3.25rem 0}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="mark" href="#">Chentiwuni Yakubu</a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div>
+        <h1>Chentiwuni<br>Yakubu</h1>
+        <p class="role">Data engineering and security analytics</p>
+        <p class="lede">I'm a computer engineering graduate finishing a master's in Applied Security and Analytics at the University of Findlay. I've worked in IT support, software development and data engineering, and I build data pipelines that give people reliable numbers to make decisions with. I'm looking for a role in data engineering, security analytics or a related field.</p>
+        <div class="actions">
+          <a class="btn primary" href="mailto:chenti.yakub@gmail.com">Email me</a>
+          <a class="btn" href="https://www.linkedin.com/in/chentiwuni-yakubu-799a162b2" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+
+      <figure class="pipe">
+        <svg viewBox="0 0 400 280" role="img" aria-labelledby="pipeTitle">
+          <title id="pipeTitle">Diagram: three data sources flow through Python and SQL ETL into a central warehouse, which feeds Power BI dashboards.</title>
+          <path class="flow" d="M118 50 C160 50,160 140,178 140"/>
+          <path class="flow" d="M118 140 L178 140"/>
+          <path class="flow" d="M118 230 C160 230,160 140,178 140"/>
+          <path class="flow" d="M290 140 L304 140"/>
+          <g class="node"><rect x="8" y="26" width="110" height="48" rx="8"/><text x="20" y="55">Source 1</text></g>
+          <g class="node"><rect x="8" y="116" width="110" height="48" rx="8"/><text x="20" y="145">Source 2</text></g>
+          <g class="node"><rect x="8" y="206" width="110" height="48" rx="8"/><text x="20" y="235">Source 3</text></g>
+          <g class="node hub"><rect x="178" y="104" width="112" height="72" rx="10"/><text x="190" y="130">Warehouse</text><text class="sub" x="190" y="148">Python + SQL</text><text class="sub" x="190" y="163">ETL</text></g>
+          <g class="node out"><rect x="304" y="104" width="88" height="72" rx="10"/><text x="315" y="130">Power BI</text><text class="sub" x="315" y="148">daily</text><text class="sub" x="315" y="163">dashboards</text></g>
+        </svg>
+        <figcaption>The reporting pipeline I built at Tima Sara Hotel. It cut manual reporting time by 40%.</figcaption>
+      </figure>
+    </div>
+
+    <section id="experience">
+      <div class="sec">
+        <h2>Experience</h2>
+        <div>
+          <article class="job">
+            <div class="when"><b>May – Aug 2025</b>Remote</div>
+            <div>
+              <h3>Data Engineer / Data Analyst</h3>
+              <p class="org">Tima Sara Hotel</p>
+              <ul>
+                <li>Built and maintained ETL pipelines in Python and SQL that consolidated data from 3 sources into a central warehouse, cutting manual reporting time by <span class="num">40%</span>.</li>
+                <li>Designed Power BI dashboards that gave daily visibility into key metrics, replacing spreadsheet reports.</li>
+                <li>Worked with business stakeholders to define KPIs and ran ad hoc SQL analyses that informed operations decisions, contributing to a <span class="num">15%</span> reduction in order processing time.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="job">
+            <div class="when"><b>Nov 2023 – Dec 2024</b>Ghana</div>
+            <div>
+              <h3>IT Support Specialist / Software Developer</h3>
+              <p class="org">Imani Impressionz</p>
+              <ul>
+                <li>Resolved 15+ hardware, software and network tickets per month with a <span class="num">95%</span> first-contact resolution rate.</li>
+                <li>Wrote internal Python tools and scripts that automated routine work such as user setup and system checks, saving the team <span class="num">13 hours</span> per week.</li>
+                <li>Configured and troubleshot routers, switches and VPN access, applying CCNA networking skills to reduce network downtime by <span class="num">30%</span>.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="sec">
+        <h2>Skills</h2>
+        <div class="skills">
+          <div class="tech">
+            <h3>Technical</h3>
+            <ul class="tags"><li>Python</li><li>SQL</li><li>ETL pipelines</li><li>Spark</li><li>Power BI</li><li>Splunk (SIEM)</li><li>AWS</li><li>Azure</li></ul>
+          </div>
+          <div>
+            <h3>Professional</h3>
+            <ul class="tags"><li>Problem-solving</li><li>Stakeholder communication</li><li>Cross-functional collaboration</li></ul>
+          </div>
+          <div>
+            <h3>Languages</h3>
+            <ul class="tags"><li>English (fluent)</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications">
+      <div class="sec">
+        <h2>Certifications</h2>
+        <ul class="list">
+          <li><a href="https://www.credly.com/badges/5a2b8197-4c45-42c5-bfa2-7cab7fc392c6" rel="noopener">Cisco Certified Network Associate (CCNA)</a><span class="meta">Cisco</span></li>
+          <li><a href="https://coursera.org/share/f9211e1de987a26a788e054c13e7b3e2" rel="noopener">Data Engineering</a><span class="meta">Coursera</span></li>
+          <li><span>Data Analytics</span><span class="meta">Certificate</span></li>
+          <li><a href="https://www.coursera.org/account/accomplishments/professional-cert/KXRV7HSQPJKL" rel="noopener">Google IT Support</a><span class="meta">Google · Coursera</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="sec">
+        <h2>Education</h2>
+        <ul class="list edu">
+          <li>
+            <h3>MS, Applied Security and Analytics</h3>
+            <p>The University of Findlay, Findlay, Ohio</p>
+            <span class="pill">Expected December 2026</span>
+          </li>
+          <li>
+            <h3>BS, Computer Engineering</h3>
+            <p>Kwame Nkrumah University of Science and Technology (KNUST), Kumasi, Ghana. Graduated 2021.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</div>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Hiring for data or security work?</h2>
+    <p>I'm based in Findlay, Ohio, and I finish my master's in December 2026. The quickest way to reach me is by email.</p>
+    <div class="actions">
+      <a class="btn primary" href="mailto:chenti.yakub@gmail.com">chenti.yakub@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/chentiwuni-yakubu-799a162b2" rel="noopener">LinkedIn</a>
+    </div>
+    <footer class="fine">© 2026 Chentiwuni Yakubu</footer>
+  </div>
+</section>
+</body>
+</html>
